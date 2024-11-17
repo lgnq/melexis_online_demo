@@ -12,6 +12,7 @@ const baudRates     = [1200, 2400, 4800, 9600, 19200, 38400, 57600, 74880, 11520
 
 const log           = document.getElementById('log');
 const butConnect    = document.getElementById('butConnect');
+const baudRate      = document.getElementById('baudRate');
 
 function toggleMenu() {
     const navLinks = document.getElementById('nav-links');
@@ -21,8 +22,17 @@ function toggleMenu() {
     menuIcon.classList.toggle('open');
 }
 
+function saveSetting(setting, value) {
+    window.localStorage.setItem(setting, JSON.stringify(value));
+}
+
+async function changeBaudRate() {
+    saveSetting('baudrate', baudRate.value);
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     butConnect.addEventListener('click', clickConnect);
+    baudRate.addEventListener('change', changeBaudRate);
   
     if ('serial' in navigator) {
       console.log("webserial is supported!")
