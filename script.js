@@ -111,6 +111,24 @@ async function connect() {
     });
 }
 
+async function readLoop() {
+    while (true) {
+      const {value, done} = await reader.read();
+  
+    //   if (value) {
+    //     if (value.substr(0, prefix.length) == prefix) {
+    //       orientations = value.substr(prefix.length).trim().split(separator).map(x=>+x);
+    //     }
+    //   }
+  
+      if (done) {
+        console.log('[readLoop] DONE', done);
+        reader.releaseLock();
+        break;
+      }
+    }
+}
+
 function initBaudRate() {
   for (let rate of baudRates) {
     var option = document.createElement("option");
