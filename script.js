@@ -8,6 +8,7 @@ let outputStream;
 let prefix;
 let separator;
 
+const maxLogLength  = 50;
 const baudRates     = [1200, 2400, 4800, 9600, 19200, 38400, 57600, 74880, 115200, 230400, 250000, 500000, 1000000, 2000000];
 
 const log           = document.getElementById('log');
@@ -91,6 +92,32 @@ function toggleUIConnected(connected) {
 async function reset() {
     // Clear the data
     log.innerHTML = "";
+}
+
+function logData(line) {
+  // Update the Log
+  // if (showTimestamp.checked) {
+  //   let d = new Date();
+  //   let timestamp = d.getHours() + ":" + `${d.getMinutes()}`.padStart(2, 0) + ":" +
+  //       `${d.getSeconds()}`.padStart(2, 0) + "." + `${d.getMilliseconds()}`.padStart(3, 0);
+
+  //   log.innerHTML += '<span class="timestamp">' + timestamp + ' -> </span>';
+    
+  //   d = null;
+  // }
+
+  log.innerHTML += line+ "<br>";
+
+  // Remove old log content
+  if (log.textContent.split("\n").length > maxLogLength + 1) {
+    let logLines = log.innerHTML.replace(/(\n)/gm, "").split("<br>");
+    
+    log.innerHTML = logLines.splice(-maxLogLength).join("<br>\n");
+  }
+
+  // if (autoscroll.checked) {
+  //   log.scrollTop = log.scrollHeight
+  // }
 }
 
 class LineBreakTransformer {
