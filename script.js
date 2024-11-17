@@ -121,8 +121,8 @@ async function connect() {
   
     reader = inputStream.getReader();
   
-    prefix    = document.getElementById('messageprefixid').value
-    separator = document.getElementById('messageseparatorid').value
+    // prefix    = document.getElementById('messageprefixid').value
+    // separator = document.getElementById('messageseparatorid').value
   
     readLoop().catch(async function(error) {
       toggleUIConnected(false);
