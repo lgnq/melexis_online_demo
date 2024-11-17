@@ -67,6 +67,7 @@ nav ul li a:hover {
 
 .main {
     flex: 1;
+    height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
     padding-top: 50px;
