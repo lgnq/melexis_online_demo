@@ -88,6 +88,8 @@ nav ul li a:hover {
     font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
     font-size: 0.8em;
   
+    background-color: rgba(74, 144, 226, 0.8);
+
     overflow-y: hidden;
   
     justify-self: stretch;
