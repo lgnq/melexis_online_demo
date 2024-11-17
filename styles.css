@@ -81,6 +81,11 @@ nav ul li a:hover {
     line-height: 40px;
   
     background-color: rgba(255, 255, 255, 0.8);
+
+    padding-top: 0px;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 0px;
 }
 
 .log {
