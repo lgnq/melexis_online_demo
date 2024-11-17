@@ -46,6 +46,22 @@
           <div class="grid_container">
             <div id="log" class="log"></div>
           </div>
+
+          <div class="controls_bottom">
+            <label for="myInput">Input:</label>
+            <input type="text" id="myInput">
+    
+            <label for="messageprefixid">Message Prefix:</label>
+            <input type="text" id="messageprefixid" value="pwm:" size="10">
+    
+            <label for="messageseparatorid">Message Separator:</label>
+            <input type="text" id="messageseparatorid" value="," size="10">
+    
+            <input type="checkbox" id="autoscroll"> Autoscroll
+            <input type="checkbox" id="showTimestamp"> Show Timestamp
+            <input type="checkbox" id="kalmanfilter"> Kalman Filter
+            <button id="butClear" type="button">Clear</button>
+          </div>          
     </main>
     
     <footer>

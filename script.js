@@ -172,7 +172,6 @@ async function readLoop() {
       const {value, done} = await reader.read();
         
       if (value) {
-        console.log(value);
     //     if (value.substr(0, prefix.length) == prefix) {
     //       orientations = value.substr(prefix.length).trim().split(separator).map(x=>+x);
     //     }
