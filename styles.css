@@ -65,6 +65,16 @@ nav ul li a:hover {
     transition: 0.4s;
 }
 
+.main {
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-top: 80px;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 10px;
+}
+
 /* Footer styling */
 footer {
     background: rgba(0, 0, 0, 0.5);
