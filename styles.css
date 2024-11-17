@@ -69,10 +69,10 @@ nav ul li a:hover {
     flex: 1;
     overflow-x: hidden;
     overflow-y: auto;
-    padding-top: 80px;
+    padding-top: 50px;
     padding-left: 1em;
     padding-right: 1em;
-    padding-bottom: 10px;
+    padding-bottom: 40px;
 }
 
 /* Footer styling */
