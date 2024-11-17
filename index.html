@@ -24,6 +24,29 @@
     </nav>
 
     <main class="main">
+        <div class="controls">
+            <button id="butConnect" type="button">Connect</button>
+            <select id="baudRate"></select>
+            
+            <label for="sampleSize">Sample size:</label>
+            <input type="text" id="sampleSize" value="300" size="10">
+    
+            <label for="sampleFreq">Sample freq:</label>
+            <!-- <select name="sampleFreq" id="sampleFreq" onchange="changeSampleFreq(this);"> -->
+            <select name="sampleFreq" id="sampleFreq">
+              <option value="1">1 Hz</option>
+              <option value="5">5 Hz</option>
+              <option value="8">8 Hz</option>
+              <option selected value="10">10 Hz</option>
+              <option value="20">20 Hz</option>
+            </select>        
+            
+            <input type="checkbox" id="darkmode"> Dark Mode
+          </div>
+    
+          <div class="charts">
+            <div id="log" class="log"></div>
+          </div>
     </main>
     
     <footer>
