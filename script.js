@@ -10,8 +10,89 @@ let separator;
 
 let data = [0, 0, 0];
 
+let plots = [];
+
+let x = 0;
+let y = 0;
+let z = 0;
+
+let size = 300;
+let freq = 10;
+
 const maxLogLength  = 50;
 const baudRates     = [1200, 2400, 4800, 9600, 19200, 38400, 57600, 74880, 115200, 230400, 250000, 500000, 1000000, 2000000];
+
+let config = {responsive: true}
+
+let layout_xyz = {
+  autosize: true,
+  // margin: { t: 5, b: 5, l: 5, r: 5 },
+
+  // title: 'MLX90423 Output(PWM)',
+  title: {
+    text: 'MLX90423 Output(PWM)',
+    font: {
+        // family: 'Arial, monospace',
+        family: 'Arial, sans-serif', // Set the font family to Arial
+        size: 20
+    },
+    yref: 'paper',
+    automargin: true,
+  },
+  
+  xaxis: {
+    title: 'time',
+    showgrid: false,
+    zeroline: false
+  },
+
+  yaxis: {
+    title: 'Duty Cycle(%)',
+    showline: false
+  }  
+};
+
+let trace_x = {
+  // type: 'line',
+  // type: 'scattergl',
+  // x: [0],
+  y: [0],
+  mode: 'lines',
+  name: 'Reference',
+  // fill: 'tozeroy',
+  line: {
+    color: 'rgb(0, 53, 75)',
+    width: 1
+  }
+};
+
+let trace_y = {
+  // type: 'line',
+  // type: 'scattergl',
+  // x: [0],
+  y: [0],
+  mode: 'lines',
+  name: 'Multipole',
+  line: {
+    color: 'rgb(101, 187, 169)',
+    width: 1
+  }
+};
+
+let trace_z = {
+  // type: 'line',
+  // type: 'scattergl',
+  // x: [0],
+  y: [0],
+  mode: 'lines',
+  name: 'Clamping',
+  line: {
+    color: 'rgb(219, 65, 64)',
+    width: 1
+  }
+};
+
+let data_xyz = [trace_x, trace_y, trace_z];
 
 const log           = document.getElementById('log');
 const butConnect    = document.getElementById('butConnect');
@@ -118,6 +199,22 @@ async function readLoop() {
         data = value.substr(prefix.length).trim().split(separator).map(x=>+x);
       }
     }
+
+    x = data[0];
+    y = data[1];
+    z = data[2];
+
+    for (let i = 0; i < plots.length; i++)
+    {
+      Plotly.extendTraces(plots[i], {y:[[x], [y], [z]]}, [0, 1, 2], size);
+    }
+
+    if (trace_x.y.length > size)
+      trace_x.y.pop();
+    if (trace_y.y.length > size)
+      trace_y.y.pop();
+    if (trace_z.y.length > size)
+      trace_z.y.pop();
 
     if (done) {
       console.log('[readLoop] DONE', done);
@@ -253,6 +350,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   else
     console.log("webserial is not supported!")
+
+  Plotly.newPlot('plot', data_xyz, layout_xyz, config);
+  plots.push('plot');    
 
   initBaudRate();
   loadAllSettings();

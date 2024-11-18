@@ -111,6 +111,20 @@ nav ul li a:hover {
     justify-self: stretch;
 }
 
+#plot {
+    /* position: relative;
+    height:35vh;
+    width: 100%;
+    margin: 10px auto;
+    gap: 10px; */
+  
+    border-width: 0px;
+    border-style: solid;
+    overflow-x: hidden;
+    overflow-x: auto;
+    transition : color 0.1s linear;  
+  }
+
 .grid_container {
     display: grid;
     grid-template-columns: 1fr 1fr;
