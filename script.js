@@ -192,6 +192,25 @@ async function clickTimestamp() {
   saveSetting('timestamp', showTimestamp.checked);
 }
 
+function writeCmd(event) {
+  // Write to output stream
+  const writer = outputStream.getWriter();
+
+  if (event.keyCode === 13) {
+    console.log(myInput.value);
+    
+    writer.write(myInput.value + '\r');
+    myInput.value = ''
+  }
+
+  // Ignores sending carriage return if sending Ctrl+C
+  // if (cmd !== "\x03") {
+    // writer.write("\r"); // Important to send a carriage return after a command
+  // }
+  
+  writer.releaseLock();
+}
+
 function initBaudRate() {
   for (let rate of baudRates) {
     var option = document.createElement("option");
@@ -227,6 +246,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   autoscroll.addEventListener('click', clickAutoscroll);
   showTimestamp.addEventListener('click', clickTimestamp);
   baudRate.addEventListener('change', changeBaudRate);
+  myInput.addEventListener('keydown', writeCmd);
 
   if ('serial' in navigator) {
     console.log("webserial is supported!")
