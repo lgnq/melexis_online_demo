@@ -51,7 +51,7 @@ let layout_xyz = {
   },  
 
   plot_bgcolor: 'rgba(255, 255, 255, 0.7)', // 设置图表背景透明
-  paper_bgcolor: 'rgba(255, 255, 255, 0)', // 设置画布背景透明  
+  paper_bgcolor: 'rgba(255, 255, 255, 1)', // 设置画布背景透明  
 };
 
 let trace_x = {
