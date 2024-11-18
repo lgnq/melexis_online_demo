@@ -28,9 +28,8 @@ let layout_xyz = {
   autosize: true,
   // margin: { t: 5, b: 5, l: 5, r: 5 },
 
-  // title: 'MLX90423 Output(PWM)',
   title: {
-    text: 'MLX90423 Output(PWM)',
+    text: 'plot all the data',
     font: {
         // family: 'Arial, monospace',
         family: 'Arial, sans-serif', // Set the font family to Arial
@@ -47,7 +46,7 @@ let layout_xyz = {
   },
 
   yaxis: {
-    title: 'Duty Cycle(%)',
+    title: 'value',
     showline: false
   }  
 };
@@ -58,7 +57,7 @@ let trace_x = {
   // x: [0],
   y: [0],
   mode: 'lines',
-  name: 'Reference',
+  name: 'x',
   // fill: 'tozeroy',
   line: {
     color: 'rgb(0, 53, 75)',
@@ -72,7 +71,7 @@ let trace_y = {
   // x: [0],
   y: [0],
   mode: 'lines',
-  name: 'Multipole',
+  name: 'y',
   line: {
     color: 'rgb(101, 187, 169)',
     width: 1
@@ -85,7 +84,7 @@ let trace_z = {
   // x: [0],
   y: [0],
   mode: 'lines',
-  name: 'Clamping',
+  name: 'z',
   line: {
     color: 'rgb(219, 65, 64)',
     width: 1
