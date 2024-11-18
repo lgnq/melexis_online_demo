@@ -50,7 +50,7 @@ let layout_xyz = {
     showline: false
   },  
 
-  plot_bgcolor: 'rgba(255, 255, 255, 0.7)', // 设置图表背景透明
+  plot_bgcolor: 'rgba(255, 255, 255, 1.0)', // 设置图表背景透明
   paper_bgcolor: 'rgba(255, 255, 255, 0.7)', // 设置画布背景透明  
 };
 
