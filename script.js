@@ -48,7 +48,10 @@ let layout_xyz = {
   yaxis: {
     title: 'value',
     showline: false
-  }  
+  },  
+
+  plot_bgcolor: 'rgba(0, 0, 0, 0.7)', // 设置图表背景透明
+  paper_bgcolor: 'rgba(0, 0, 0, 0.7)', // 设置画布背景透明  
 };
 
 let trace_x = {
