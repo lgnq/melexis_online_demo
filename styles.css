@@ -97,7 +97,8 @@ nav ul li a:hover {
     padding-top: 0px;
     padding-left: 1em;
     padding-right: 1em;
-    padding-bottom: 0px;}
+    padding-bottom: 0px;
+}
 
 .log {
     width: 100%;
@@ -109,6 +110,11 @@ nav ul li a:hover {
     overflow-y: hidden;
   
     justify-self: stretch;
+
+    padding-top: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;    
 }
 
 #plot {
