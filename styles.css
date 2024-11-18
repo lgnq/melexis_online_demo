@@ -131,7 +131,7 @@ nav ul li a:hover {
     overflow-x: hidden;
     overflow-x: auto;
     transition : color 0.1s linear;  
-  }
+}
 
 .grid_container {
     display: grid;
