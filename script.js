@@ -372,14 +372,7 @@ var j = function(p)
 
   p.setup = function() 
   {
-    var h = parent.innerHeight/2 - 120;
-    var w = (parent.innerWidth - 80) / 3;
-
-    console.log(log.offsetWidth);
-    console.log(log.offsetHeight);
-
     p.createCanvas(log.offsetWidth, log.offsetHeight, p.WEBGL);
-    // p.createCanvas(w, 400, p.WEBGL);
   }
 
   p.draw = function() 
@@ -410,7 +403,7 @@ var j = function(p)
 
   p.windowResized = function() 
   {
-    p.resizeCanvas(parent.innerWidth/2, parent.innerHeight/2);
+    p.resizeCanvas(log.offsetWidth, log.offsetHeight);
   }
 }
 var myp5 = new p5(j, 'joystick')
