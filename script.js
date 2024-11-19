@@ -408,7 +408,7 @@ var j = function(p)
     p.cylinder(stickLen / 7, stickLen);
   }
 
-  p.windowResized = function 
+  p.windowResized = function() 
   {
     p.resizeCanvas(windowWidth, windowHeight);
   }
