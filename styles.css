@@ -21,7 +21,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 53, 75, 1);
     color: white;
     position: fixed;
     width: 100%;
@@ -157,7 +157,7 @@ nav ul li a:hover {
 
 /* Footer styling */
 footer {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 53, 75, 1);
     color: white;
     text-align: center;
     padding: 10px 0;
