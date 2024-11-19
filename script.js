@@ -16,6 +16,9 @@ let x = 0;
 let y = 0;
 let z = 0;
 
+let alpha = 0;
+let beta  = 0;
+
 let size = 300;
 let freq = 10;
 
@@ -359,3 +362,46 @@ document.addEventListener('DOMContentLoaded', async () => {
   initBaudRate();
   loadAllSettings();
 });  
+
+var j = function(p)
+{
+  let width = 400;
+
+  /** The maximum stick deflection angle, in radians */
+  const MAX_DEFLECT = Math.PI / 8;
+
+  p.setup = function() 
+  {
+    var h = parent.innerHeight/2 - 120;
+    var w = (parent.innerWidth - 80) / 3;
+
+    // p.createCanvas(420, h, p.WEBGL);
+    p.createCanvas(w, 400, p.WEBGL);
+  }
+
+  p.draw = function() 
+  {
+    const stickLen = width * 0.3;
+
+    p.background(0xFF, 0xFF, 0xFF);
+
+    p.ambientLight(128);
+    p.directionalLight(200, 200, 200, 100, 150, -1);  // A white light from behind the viewer
+    p.ambientMaterial(192);
+
+    p.sphere(60);
+
+    p.rotateX(-Math.PI / 2);
+
+    p.rotateX(p.map(beta-90, -25, 25, -MAX_DEFLECT, MAX_DEFLECT));
+    p.rotateZ(p.map(alpha-90, -25, 25, -MAX_DEFLECT, MAX_DEFLECT));
+
+    // rotateY(map(mouseXRatio(), -1, 1, -MAX_DEFLECT, MAX_DEFLECT));
+
+    p.translate(0, -stickLen / 2, 0);
+    p.noStroke();
+
+    p.cylinder(stickLen / 7, stickLen);
+  }
+}
+var myp5 = new p5(j, 'joystick')
