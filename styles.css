@@ -216,5 +216,9 @@ footer {
         margin-bottom: 0;
     
         height: 100vh;
-      }    
+    }
+    
+    .controls_bottom {
+        display: none;
+    }    
 }
