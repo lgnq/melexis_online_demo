@@ -375,11 +375,11 @@ var j = function(p)
     var h = parent.innerHeight/2 - 120;
     var w = (parent.innerWidth - 80) / 3;
 
-    console.log(parent.innerWidth);
-    console.log(parent.innerHeight);
+    console.log(log.offsetWidth);
+    console.log(log.offsetHeight);
 
-    // p.createCanvas(420, h, p.WEBGL);
-    p.createCanvas(w, 400, p.WEBGL);
+    p.createCanvas(log.offsetWidth, log.offsetHeight, p.WEBGL);
+    // p.createCanvas(w, 400, p.WEBGL);
   }
 
   p.draw = function() 
