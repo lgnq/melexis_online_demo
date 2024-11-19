@@ -217,6 +217,10 @@ footer {
     
         height: 100vh;
     }
+
+    #joystick {
+        width: 100vh;
+    }
     
     .controls_bottom {
         display: none;
