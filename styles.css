@@ -122,7 +122,7 @@ nav ul li a:hover {
     padding-bottom: 1em;    
 }
 
-#plot {
+.plot {
     /* position: relative;
     height:35vh;
     width: 100%;
