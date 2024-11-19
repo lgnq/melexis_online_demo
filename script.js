@@ -99,6 +99,7 @@ let trace_z = {
 
 let data_xyz = [trace_x, trace_y, trace_z];
 
+const grid          = document.getElementById('grid');
 const log           = document.getElementById('log');
 const butConnect    = document.getElementById('butConnect');
 const butClear      = document.getElementById('butClear');
@@ -372,7 +373,7 @@ var j = function(p)
 
   p.setup = function() 
   {
-    p.createCanvas(log.offsetWidth, log.offsetHeight, p.WEBGL);
+    p.createCanvas(grid.offsetWidth/2, grid.offsetHeight/2, p.WEBGL);
   }
 
   p.draw = function() 
@@ -403,7 +404,7 @@ var j = function(p)
 
   p.windowResized = function() 
   {
-    p.resizeCanvas(log.offsetWidth, log.offsetHeight);
+    p.resizeCanvas(grid.offsetWidth/2, grid.offsetHeight/2);
   }
 }
 var myp5 = new p5(j, 'joystick')
