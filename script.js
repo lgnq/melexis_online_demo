@@ -405,9 +405,14 @@ var j = function(p)
   p.windowResized = function() 
   {
     if (grid.offsetWidth + 20 > 768)
+    {
       p.resizeCanvas((grid.offsetWidth-10)/2, (grid.offsetHeight-30)/2);
+    }
     else
-      p.resizeCanvas((grid.offsetWidth, grid.offsetHeight/2));
+    {
+      console.log(grid.offsetWidth);
+      p.resizeCanvas((grid.offsetWidth, grid.offsetHeight));
+    }
   }
 }
 var myp5 = new p5(j, 'joystick')
