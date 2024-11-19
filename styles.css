@@ -82,7 +82,8 @@ nav ul li a:hover {
     height: 40px;
     line-height: 40px;
   
-    background-color: rgba(255, 255, 255, 0.8);
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    background-color: rgba(178, 196, 203, 0.8);
 
     padding-top: 0px;
     padding-left: 1em;
@@ -94,7 +95,8 @@ nav ul li a:hover {
     height: 40px;
     line-height: 40px;
   
-    background-color: rgba(255, 255, 255, 0.8);
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    background-color: rgba(178, 196, 203, 0.8);
 
     padding-top: 0px;
     padding-left: 1em;
@@ -107,7 +109,8 @@ nav ul li a:hover {
     font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
     font-size: 0.8em;
   
-    background-color: rgba(255, 255, 255, 0.9);
+    /* background-color: rgba(255, 255, 255, 0.9); */
+    background-color: rgba(178, 196, 203, 0.8);
 
     overflow-y: hidden;
   
@@ -205,4 +208,13 @@ footer {
         transform: rotate(45deg) translate(-8px, -8px);
         width: 30px;
     }
+
+    .grid_container {
+        grid-template-columns: 1fr;
+        grid-template-areas: initial;
+        gap: 10px;
+        margin-bottom: 0;
+    
+        height: 100vh;
+      }    
 }
