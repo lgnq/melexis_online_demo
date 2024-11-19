@@ -410,10 +410,10 @@ var j = function(p)
     }
     else
     {
-      console.log(grid.offsetWidth)
-      console.log(grid.offsetHeight/3)
+      console.log(grid.offsetWidth);
+      console.log(grid.offsetHeight/3);
       p.resizeCanvas((grid.offsetWidth, grid.offsetHeight/3));
     }
   }
 }
-var myp5 = new p5(j, 'joystick')
+var myp5 = new p5(j, 'joystick');
