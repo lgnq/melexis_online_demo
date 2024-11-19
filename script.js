@@ -410,7 +410,7 @@ var j = function(p)
     }
     else
     {
-      p.resizeCanvas((grid.offsetWidth, grid.offsetHeight));
+      p.resizeCanvas((grid.offsetWidth, grid.offsetHeight/4));
     }
   }
 }
