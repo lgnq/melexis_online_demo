@@ -376,6 +376,7 @@ var j = function(p)
     var w = (parent.innerWidth - 80) / 3;
 
     console.log(parent.innerWidth);
+    console.log(parent.innerHeight);
 
     // p.createCanvas(420, h, p.WEBGL);
     p.createCanvas(w, 400, p.WEBGL);
