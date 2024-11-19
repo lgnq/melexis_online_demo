@@ -410,7 +410,7 @@ var j = function(p)
 
   p.windowResized = function() 
   {
-    p.resizeCanvas(windowWidth, windowHeight);
+    p.resizeCanvas(windowWidth/2, windowHeight/2);
   }
 }
 var myp5 = new p5(j, 'joystick')
