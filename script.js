@@ -383,7 +383,8 @@ var j = function(p)
   {
     const stickLen = width * 0.3;
 
-    p.background(0xFF, 0xFF, 0xFF);
+    // p.background(0xFF, 0xFF, 0xFF);
+    p.background('rgba(255, 255, 255, 0.9)')
 
     p.ambientLight(128);
     p.directionalLight(200, 200, 200, 100, 150, -1);  // A white light from behind the viewer
