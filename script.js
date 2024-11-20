@@ -16,6 +16,9 @@ let x = 0;
 let y = 0;
 let z = 0;
 
+let alpha = 0;
+let beta  = 0;
+
 let size = 300;
 let freq = 10;
 
@@ -50,8 +53,11 @@ let layout_xyz = {
     showline: false
   },  
 
-  plot_bgcolor: 'rgba(255, 255, 255, 0.7)', // 设置图表背景透明
-  paper_bgcolor: 'rgba(255, 255, 255, 0)', // 设置画布背景透明  
+  plot_bgcolor: 'rgba(255, 255, 255, 0)', // 设置图表背景透明
+  paper_bgcolor: 'rgba(255, 255, 255, 0.9)', // 设置画布背景透明  
+  // plot_bgcolor: 'rgba(178, 196, 203, 0)', // 设置图表背景透明
+  // paper_bgcolor: 'rgba(178, 196, 203, 0.8)', // 设置画布背景透明  
+
 };
 
 let trace_x = {
@@ -93,6 +99,7 @@ let trace_z = {
 
 let data_xyz = [trace_x, trace_y, trace_z];
 
+const grid          = document.getElementById('grid');
 const log           = document.getElementById('log');
 const butConnect    = document.getElementById('butConnect');
 const butClear      = document.getElementById('butClear');
@@ -356,3 +363,57 @@ document.addEventListener('DOMContentLoaded', async () => {
   initBaudRate();
   loadAllSettings();
 });  
+
+var j = function(p)
+{
+  let width = 400;
+
+  /** The maximum stick deflection angle, in radians */
+  const MAX_DEFLECT = Math.PI / 8;
+
+  p.setup = function() 
+  {
+    p.createCanvas((grid.offsetWidth-10)/2, (grid.offsetHeight-30)/2, p.WEBGL);
+  }
+
+  p.draw = function() 
+  {
+    const stickLen = width * 0.3;
+
+    // p.background(0xFF, 0xFF, 0xFF);
+    p.background('rgba(255, 255, 255, 0.9)')
+
+    p.ambientLight(128);
+    p.directionalLight(200, 200, 200, 100, 150, -1);  // A white light from behind the viewer
+    p.ambientMaterial(192);
+
+    p.sphere(60);
+
+    p.rotateX(-Math.PI / 2);
+
+    p.rotateX(p.map(beta-90, -25, 25, -MAX_DEFLECT, MAX_DEFLECT));
+    p.rotateZ(p.map(alpha-90, -25, 25, -MAX_DEFLECT, MAX_DEFLECT));
+
+    // rotateY(map(mouseXRatio(), -1, 1, -MAX_DEFLECT, MAX_DEFLECT));
+
+    p.translate(0, -stickLen / 2, 0);
+    p.noStroke();
+
+    p.cylinder(stickLen / 7, stickLen);
+  }
+
+  p.windowResized = function() 
+  {
+    if (grid.offsetWidth + 20 > 768)
+    {
+      p.resizeCanvas((grid.offsetWidth-10)/2, (grid.offsetHeight-30)/2);
+    }
+    else
+    {
+      console.log(grid.offsetWidth);
+      console.log(grid.offsetHeight/3);
+      p.resizeCanvas((grid.offsetWidth, grid.offsetHeight/3));
+    }
+  }
+}
+var myp5 = new p5(j, 'joystick');
